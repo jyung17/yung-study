@@ -28,9 +28,11 @@
             <li><a href='auth/form.jsp'>로그인</a></li>
         </c:otherwise>
     </c:choose>
+    <li><a href="inquiry/list">1:1문의 게시판</a></li>
 </ul>
 
-
+<img width="400" src="images/img.jpeg">
+<br>
 
 <input type="text" id="sample4_postcode" placeholder="우편번호">
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>

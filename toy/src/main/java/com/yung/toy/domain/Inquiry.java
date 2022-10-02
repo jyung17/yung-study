@@ -3,25 +3,28 @@ package com.yung.toy.domain;
 import java.sql.Date;
 import java.util.List;
 
-public class Board {
+public class Inquiry {
   private int no;
   private String title;
   private String content;
-  private String password;
-  private int viewCount;
+  private String type;
   private Date createdDate;
+  private String qa_content;
+  private Date qa_createdDate;
   private Member writer;
   private List<AttachedFile> attachedFiles;
   
+  
   @Override
   public String toString() {
-    return "Board{" +
+    return "Inquriy{" +
         "no=" + no +
         ", title='" + title + '\'' +
         ", content='" + content + '\'' +
-        ", password='" + password + '\'' +
-        ", viewCount=" + viewCount +
-        ", createDate=" + createdDate +
+        ", type='" + type + '\'' +
+        ", createdDate=" + createdDate +
+        ", qa_content='" + qa_content + '\'' +
+        ", qa_createdDate=" + qa_createdDate +
         ", writer=" + writer +
         ", attachedFiles=" + attachedFiles +
         '}';
@@ -51,20 +54,12 @@ public class Board {
     this.content = content;
   }
   
-  public String getPassword() {
-    return password;
+  public String getType() {
+    return type;
   }
   
-  public void setPassword(String password) {
-    this.password = password;
-  }
-  
-  public int getViewCount() {
-    return viewCount;
-  }
-  
-  public void setViewCount(int viewCount) {
-    this.viewCount = viewCount;
+  public void setType(String type) {
+    this.type = type;
   }
   
   public Date getCreatedDate() {
@@ -73,6 +68,22 @@ public class Board {
   
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
+  }
+  
+  public String getQa_content() {
+    return qa_content;
+  }
+  
+  public void setQa_content(String qa_content) {
+    this.qa_content = qa_content;
+  }
+  
+  public Date getQa_createdDate() {
+    return qa_createdDate;
+  }
+  
+  public void setQa_createdDate(Date qa_createdDate) {
+    this.qa_createdDate = qa_createdDate;
   }
   
   public Member getWriter() {

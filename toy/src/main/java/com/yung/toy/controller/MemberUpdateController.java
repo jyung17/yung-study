@@ -3,33 +3,43 @@ package com.yung.toy.controller;
 import com.yung.toy.dao.MemberDao;
 import com.yung.toy.domain.Member;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/list")
-public class MemberListController extends HttpServlet {
+
+@WebServlet("/member/update")
+public class MemberUpdateController extends HttpServlet {
   private static final long serialVersionUID = 1L;
-  
+
   MemberDao memberDao;
-  
+
   @Override
   public void init() {
     memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
-  
+
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     try {
-      List<Member> members = memberDao.findAll();
-      request.setAttribute("members", members);
-      response.setContentType("text/html; charset=UTF-8");
-      request.getRequestDispatcher("/member/list.jsp").include(request, response);
-      
+      request.setCharacterEncoding("UTF-8");
+
+      Member member = new Member();
+      member.setNo(Integer.parseInt(request.getParameter("no")));
+      member.setName(request.getParameter("name"));
+      member.setEmail(request.getParameter("email"));
+      member.setPassword(request.getParameter("password"));
+
+      if (memberDao.update(member) == 0) {
+        throw new Exception("사용자 변경 실패!");
+      }
+
+      response.sendRedirect("list");
+
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);

@@ -1,6 +1,7 @@
 package com.yung.toy.listener;
 
 import com.yung.toy.dao.MariaDBBoardDao;
+import com.yung.toy.dao.MariaDBInquiryBoardDao;
 import com.yung.toy.dao.MariaDBMemberDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +23,8 @@ public class ContextLoaderListener implements ServletContextListener {
           DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
       
       ServletContext ctx = sce.getServletContext();
-      //ctx.setAttribute("boardDao", new MariaDBBoardDao(con));
+      ctx.setAttribute("boardDao", new MariaDBBoardDao(con));
+      ctx.setAttribute("inquiryboardDao", new MariaDBInquiryBoardDao(con));
       ctx.setAttribute("memberDao", new MariaDBMemberDao(con));
     } catch (Exception e) {
       e.printStackTrace();

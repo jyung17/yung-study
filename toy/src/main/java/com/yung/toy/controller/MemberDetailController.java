@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/list")
-public class MemberListController extends HttpServlet {
-  private static final long serialVersionUID = 1L;
-  
+@WebServlet("/member/detail")
+public class MemberDetailController extends HttpServlet {
   MemberDao memberDao;
   
   @Override
@@ -24,11 +22,19 @@ public class MemberListController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+  
+    int memberNo = Integer.parseInt(request.getParameter("no"));
+    
     try {
-      List<Member> members = memberDao.findAll();
-      request.setAttribute("members", members);
+      Member member = memberDao.findByNo(memberNo);
+  
+      if (member == null) {
+        throw new Exception("사용자 조회 실패!");
+      }
+      
+      request.setAttribute("member", member);
       response.setContentType("text/html; charset=UTF-8");
-      request.getRequestDispatcher("/member/list.jsp").include(request, response);
+      request.getRequestDispatcher("/member/inquiry_detail.jsp").include(request, response);
       
     } catch (Exception e) {
       request.setAttribute("exception", e);
