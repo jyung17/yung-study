@@ -35,7 +35,7 @@ public class BoardDetailController extends HttpServlet {
 
       request.setAttribute("board", board);
       response.setContentType("text/html; charset=UTF-8");
-      request.getRequestDispatcher("/board/inquiry_detail.jsp").include(request, response);
+      request.getRequestDispatcher("/board/detail.jsp").include(request, response);
 
     } catch (Exception e) {
       request.setAttribute("exception", e);

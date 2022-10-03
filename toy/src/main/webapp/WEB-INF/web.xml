@@ -37,6 +37,15 @@
     <url-pattern>/auth/form</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>inquiry_board/inquiry_form</servlet-name>
+    <jsp-file>/inquiry_board/inquiry_form.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inquiry_board/inquiry_form</servlet-name>
+    <url-pattern>/inquiry/inquiry_form</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/inquiry/list")
+@WebServlet("/inquiry/inquiry_list")
 public class InquiryBoardListController extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class InquiryBoardListController extends HttpServlet {
       request.setAttribute("inquiries", inquiries);
 
       response.setContentType("text/html;charset=UTF-8");
-      RequestDispatcher 요청배달자 = request.getRequestDispatcher("/inquiry_board/list.jsp");
+      RequestDispatcher 요청배달자 = request.getRequestDispatcher("/inquiry_board/inquiry_list.jsp");
       요청배달자.include(request, response);
 
     } catch (Exception e) {

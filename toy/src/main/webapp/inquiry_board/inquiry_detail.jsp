@@ -9,6 +9,7 @@
 <body>
 <h1>1:1문의 상세 페이지</h1>
 
+
 <form action='update' method="post">
   <table border='1'>
     <tr>

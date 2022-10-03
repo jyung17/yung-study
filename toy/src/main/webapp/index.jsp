@@ -28,7 +28,7 @@
             <li><a href='auth/form.jsp'>로그인</a></li>
         </c:otherwise>
     </c:choose>
-    <li><a href="inquiry/list">1:1문의 게시판</a></li>
+    <li><a href="inquiry/inquiry_list">1:1문의 게시판</a></li>
 </ul>
 
 <img width="400" src="images/img.jpeg">

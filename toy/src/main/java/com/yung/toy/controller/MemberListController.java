@@ -28,7 +28,7 @@ public class MemberListController extends HttpServlet {
       List<Member> members = memberDao.findAll();
       request.setAttribute("members", members);
       response.setContentType("text/html; charset=UTF-8");
-      request.getRequestDispatcher("/member/list.jsp").include(request, response);
+      request.getRequestDispatcher("/member/inquiry_list.jsp").include(request, response);
       
     } catch (Exception e) {
       request.setAttribute("exception", e);

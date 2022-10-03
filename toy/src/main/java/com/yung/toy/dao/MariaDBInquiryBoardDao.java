@@ -24,7 +24,7 @@ public class MariaDBInquiryBoardDao implements InquiryBoardDao {
     try(PreparedStatement pstmt =
         con.prepareStatement("insert into app_inquiry_board(iq_title, iq_cont, iq_type, mno) values(?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         PreparedStatement pstmt2 =
-            con.prepareStatement("insert into app_inquiry_file(filepath, iq_no) values(?, ?)")) {
+            con.prepareStatement("insert into app_inquiry_file(iqf_filepath, iq_no) values(?, ?)")) {
       pstmt.setString(1, inquiry.getTitle());
       pstmt.setString(2, inquiry.getContent());
       pstmt.setString(3, inquiry.getType());

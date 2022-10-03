@@ -8,6 +8,10 @@
   <p>
     <a href='../'>메인</a>
   </p>
+
+  <p>
+    <a href='inquiry_form'>문의하기</a>
+  </p>
   <title>1:1 문의내역</title>
   <style>
     table {
@@ -87,7 +91,7 @@
       text-align: center;
     }
 
-    .board-table .th-writer .th-date {
+    .board-table .th-type .th-writer .th-date {
       width: 200px;
     }
 
@@ -200,6 +204,21 @@
     </div>
   </div>
 
+  <!-- board seach area -->
+  <div id="board-search">
+    <div class="container">
+      <div class="search-window">
+        <form action="">
+          <div class="search-wrap">
+            <label for="search" class="blind">문의 게시판 검색</label>
+            <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+            <button type="submit" class="btn btn-dark">검색</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- board list area -->
   <div id="board-list">
     <div class="container">
@@ -208,6 +227,7 @@
         <tr>
           <th scope="col" class="th-num">번호</th>
           <th scope="col" class="th-title">제목</th>
+          <th scope="col" class="th-date">질문유형</th>
           <th scope="col" class="th-writer">작성자</th>
           <th scope="col" class="th-date">등록일</th>
         </tr>
@@ -220,6 +240,7 @@
             <th>
               <a href='inquiry_detail?no=${inquiry.no}'>${inquiry.title}</a>
             </th>
+            <td>${inquiry.type}</td>
             <td>${inquiry.writer.name}</td>
             <td>${inquiry.createdDate}</td>
           </tr>
