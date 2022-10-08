@@ -91,13 +91,17 @@
       text-align: center;
     }
 
-    .board-table .th-type .th-writer .th-date {
-      width: 200px;
+    .board-table .th-title {
+      width: 60%;
+    }
+
+    .board-table .th-type .th-writer .th-date .th-status  {
+      width: 50px;
     }
 
     .board-table th,
     .board-table td {
-      padding: 14px 0;
+      padding: 10px 0;
     }
 
     .board-table tbody td {
@@ -106,7 +110,7 @@
     }
 
     .board-table tbody th {
-      padding-left: 28px;
+      padding-left: 30px;
       padding-right: 14px;
       border-top: 1px solid #e7e7e7;
       text-align: left;
@@ -227,9 +231,9 @@
         <tr>
           <th scope="col" class="th-num">번호</th>
           <th scope="col" class="th-title">제목</th>
-          <th scope="col" class="th-date">질문유형</th>
           <th scope="col" class="th-writer">작성자</th>
           <th scope="col" class="th-date">등록일</th>
+          <th scope="col" class="th-status">답변상태</th>
         </tr>
         </thead>
         <tbody>
@@ -240,9 +244,9 @@
             <th>
               <a href='inquiry_detail?no=${inquiry.no}'>${inquiry.title}</a>
             </th>
-            <td>${inquiry.type}</td>
             <td>${inquiry.writer.name}</td>
             <td>${inquiry.createdDate}</td>
+            <td>답변대기</td>
           </tr>
         </c:forEach>
 <%--        <tr>--%>
