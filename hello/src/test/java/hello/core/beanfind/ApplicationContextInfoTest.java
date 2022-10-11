@@ -22,7 +22,6 @@ public class ApplicationContextInfoTest {
     }
   }
   
-  
   // 스프링이 내부에서 사용하는 빈은 제외하고, 내가 등록한 빈만 출력해보자.
   // 스프링이 내부에서 사용하는 빈은 `getRole()`로 구분할 수 있다.
   // Role ROLE_APPLICATION: 일반적으로 사용자가 정의한 빈(직접 등록한 애플리케이션 빈)
